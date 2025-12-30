@@ -1,0 +1,50 @@
+Manual testing- we have created a function to divide two numbers
+--> now in test class, we are calling this function.
+--> the we are comparing the returned value with the expected result
+--> Actual and Expected results are compare
+--> if both are equal, the test case passed message is displayed, otherwise test case failed
+
+
+UNIT TESTING FRAMEWORK (JUNITS)?
+=>Prepare (set-up a test environment, write test methods...)
+=>Provide testing input
+=>Run the test
+=> Provide expected output
+=> Perform Assertion (verify the result)
+=> Report Test results (alert developer passed or failed)
+step 3,5,6 are common for all testing of units
+Other steps may depend on the functionality of the unit to be tested
+Using JUNIT will be helping in steps 3,5,6
+
+JUnit5 Architecture
+-> It is NOT JUnit4+new features; but more than that
+-> Underlying is the platform consist of test runner (core of architecture)
+-> API used: Jupiter
+-> Using this API, platform would run the test
+-> More API: Vintage, Extensions
+
+1. Create a Maven Project
+2. We write project in src/main/java; test in src/test/java
+3. In pom.xml; add dependencies tag
+4. Inside it, add the maven dependency from the link:
+<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+mvnrepository.com/open-source/testing-frameworks
+Here scope tag means, not to be included while deploying code
+
+To automatically generate test clas--> Ctrl + Shift + T
+
+in the test class assertEquals() is used to compare expected and actual values
+Takes two parameters, expected result and actual result
+
+When we are having a simple java project, we first create a source path named "test"
+then same package name and then test class
+
+
+
+
