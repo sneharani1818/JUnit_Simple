@@ -45,6 +45,61 @@ Takes two parameters, expected result and actual result
 When we are having a simple java project, we first create a source path named "test"
 then same package name and then test class
 
+@Test annotation
+--> Applied over methods to amrk as test
+--> org.junit.jupiter.api
+--> Visibility of @Test annotation method can be public, protected, default
+--> Also informs test engine what method needs to run
 
+By default, test is considered as success
 
+Assertion: Expectation vs Actual output (Reality)
+Assertions=> static methods like assertEquals(expected, actual);
+
+org.junit.jupiter.Assertions class supports features of java8 (lambda expression, Stream API)
+
+we can also change test() name according to the method which we are testing, good practice for bigger projects
+
+Strategy: Write Test then code==> Test driven development
+But still first we have to give function declaration
+
+in pom.xml file, add these plugins--> maven-compiler-plugin; and maven-surefire-plugin
+
+We can give a message to developer in two ways
+assertEquals(76.5, shape.computeCircleArea(5),"Area is wrong");
+AssertEquals(76.5, shape.computeCircleArea(5), ()->"Area of circle is wrong");
+
+In second one, we are using supplier functional interface which would be evaluated only when the test fails. So it's a good practice. This is the efficient way.
+In first case, the string would be evaluated even if the test passes
+
+assertNotEquals()--> test would fail when expected is equal to actual result.
+assertTrue(); argument is passed, if true then pass otherwise fail
+assertFalse(): argument is true then test fails otherwise test passes. we can aslo pass message as seen earlier if the test fails, it would be displayed
+
+assertArrayEquals():
+--> Actual and expected arrays are equal
+--> Number of elements should match
+--> elements of an array are equal
+--> order of elements must be same
+--> when comparing arrays with assetEquals, it would compare the refeences and not the elements, so it would result false only
+
+when dealing with array, handle NullPointerException as well
+To fail a test explicitly--> use fail();
+.....
+fail();
+.....
+
+assertThrows(MullPointerException.class, ()->array.sortingArray(unsortedArray);
+if the above method generated an exception the test passes, otherwise fails.
+
+assertTimeOut(Duration.ofMillis(10), ()-> array.sotingArray(unsorted));
+now the test fails if the method takes more than 10 mmilliseconds
+
+For Junit below 5, we do not have Duration option, so we write @Test(timeout=100) explicitly
+
+@BeforeEach annotation--> this would be executed before executing each test in the test file
+@AfterEach annotation--> this would be executed after each test is executed. like for resource closing
+@BeforeAll --> only for a static method.
+@AfterAll --> for static method after all tests are executed
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) --> create only one instance, then no need to have static methods.
 

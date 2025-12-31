@@ -1,6 +1,8 @@
 package org.example.numbers;
 
+//import static org.junit.jupiter.Assertions.*;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 public class CalcTest extends TestCase {
 
@@ -12,6 +14,7 @@ public class CalcTest extends TestCase {
         int expected=8;
         assertEquals(expected, actual);
     }
+
 
     public void testDiff() {
         Calc c= new Calc();
